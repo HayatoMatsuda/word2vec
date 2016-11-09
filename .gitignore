@@ -1,0 +1,11 @@
+.DS_Store
+bing/
+*.txt
+*.sh
+gensimPy3/
+mecab-ipadic-neologd/
+*.npy
+numpy/
+nwc-toolkit/
+!requirements.txt
+text8*
