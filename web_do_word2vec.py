@@ -33,9 +33,9 @@ def s(posi='', nega='', n=10):
     	stopWords = [ u'機能性', u'信頼性', u'使用性', u'効率性', u'保守性', u'移植性', u'セキュリティ', u'コスト' ]
     	for r in result:
 	    	if r[1] >= threshold and not r[0].isdigit() and len(r[0]) > 1 and not re.match("[!-/:-@[-`{-~]", r[0]) and r[0] not in stopWords:
-	        	print str(cnt).encode('utf-8'), u'　'.encode('utf-8'), r[0].encode('utf-8'), u'　'.encode('utf-8'), r[1]
-	        	text = str(cnt) + '　' + r[0] + '　' + str(r[1]) + '\n'
-	        	texts[r[0]] = r[1]
+	        	print str(cnt).encode('utf-8'), u'　'.encode('utf-8'), r[0].encode('utf-8'), u'　'.encode('utf-8'), round(r[1], 2)
+	        	# text = str(cnt) + '　' + r[0] + '　' + str(round(r[1], 2)) + '\n'
+	        	texts[r[0]] = round(r[1], 2)
 	        	cnt += 1
     	results[p] = texts
 	# f = open(posi + ".json", "w")
