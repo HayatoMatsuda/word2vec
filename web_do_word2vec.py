@@ -33,7 +33,7 @@ def s(posi='', nega='', n=10):
     	stopWords = [ u'機能性', u'信頼性', u'使用性', u'効率性', u'保守性', u'移植性', u'セキュリティ', u'コスト' ]
     	for r in result:
 	    	if r[1] >= threshold and not r[0].isdigit() and len(r[0]) > 1 and not re.match("[!-/:-@[-`{-~]", r[0]) and r[0] not in stopWords:
-	        	print cnt,'　', r[0],'　', r[1]
+	        	print str(cnt).encode('utf-8'), u'　'.encode('utf-8'), r[0].encode('utf-8'), u'　'.encode('utf-8'), r[1]
 	        	text = str(cnt) + '　' + r[0] + '　' + str(r[1]) + '\n'
 	        	texts[r[0]] = r[1]
 	        	cnt += 1
@@ -56,7 +56,7 @@ def mecab(word=''):
 			continue
 
 		surface = node.surface.decode('utf-8', 'ignore')
-		print "surface:", surface, "   meta:", meta[0]
+		print u"surface:".encode('utf-8'), surface.encode('utf-8'), u"   meta:".encode('utf-8'), meta[0].encode('utf-8')
 
 		if meta[0] == '名詞':
 			text.append(surface)
@@ -74,7 +74,7 @@ def main():
 	num = int(request.query.get('num'))
 	return s(posi, nega, num)
 
-run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
+run(host='0.0.0.0', port=9080)
 
 # if __name__ == '__main__':
 # 	parser = argparse.ArgumentParser()
